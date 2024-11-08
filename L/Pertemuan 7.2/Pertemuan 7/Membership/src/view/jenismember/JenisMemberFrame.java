@@ -12,7 +12,7 @@ public class JenisMemberFrame extends JFrame {
     private JenisMemberDao jenisMemberDao;
 
     public JenisMemberFrame(JenisMemberDao jenisMemberDao) {
-        setTitle("Jenis Membership");
+        setTitle("Lulusan");
         this.jenisMemberDao = jenisMemberDao;
         List<JenisMember> jenisMemberList = jenisMemberDao.findAll();
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

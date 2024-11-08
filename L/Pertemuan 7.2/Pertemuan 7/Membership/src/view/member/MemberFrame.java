@@ -19,7 +19,7 @@ public class MemberFrame extends JFrame {
     private JenisMemberDao jenisMemberDao;
 
     public MemberFrame(MemberDao memberDao, JenisMemberDao jenisMemberDao) {
-        setTitle("Membership Management"); // Judul utama jendela
+        setTitle("Biodata"); // Judul utama jendela
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         this.memberDao = memberDao;

@@ -18,7 +18,7 @@ public class JenisMemberButtonDeleteActionListener implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         JenisMember selectedJenisMember = jenisMemberFrame.getSelectedJenisMember();
         if (selectedJenisMember != null) {
-            int confirm = JOptionPane.showConfirmDialog(jenisMemberFrame, "Are you sure you want to delete this member?", 
+            int confirm = JOptionPane.showConfirmDialog(jenisMemberFrame, "Kamu yakin ingin menghapus ?", 
                                                         "Delete Confirmation", JOptionPane.YES_NO_OPTION);
             if (confirm == JOptionPane.YES_OPTION) {
                 jenisMemberDao.delete(selectedJenisMember);

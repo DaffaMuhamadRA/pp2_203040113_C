@@ -1,7 +1,7 @@
 package view.jenismember;
 
-import javax.swing.table.*;
 import java.util.List;
+import javax.swing.table.*;
 import model.JenisMember;
 
 class JenisMemberTableModel extends AbstractTableModel {
@@ -27,19 +27,24 @@ class JenisMemberTableModel extends AbstractTableModel {
         return columnNames[col];
     }
 
+    @Override
     public Object getValueAt(int row, int col) {
         JenisMember rowItem = data.get(row);
-        String value = "";
         switch (col) {
             case 0:
-                value = rowItem.getNama();
-                break;
+                return rowItem.getNama();
+            default:
+                return null;
         }
-        return value;
     }
 
+    @Override
     public boolean isCellEditable(int row, int col) {
         return false;
+    }
+
+    public JenisMember getJenisMemberAt(int row) {
+        return data.get(row);
     }
 
     public void add(JenisMember value) {
@@ -47,4 +52,19 @@ class JenisMemberTableModel extends AbstractTableModel {
         fireTableRowsInserted(data.size() - 1, data.size() - 1);
     }
 
+    public void update(JenisMember value) {
+        int index = data.indexOf(value);
+        if (index != -1) {
+            data.set(index, value);
+            fireTableRowsUpdated(index, index);
+        }
+    }
+
+    public void remove(JenisMember value) {
+        int index = data.indexOf(value);
+        if (index != -1) {
+            data.remove(index);
+            fireTableRowsDeleted(index, index);
+        }
+    }
 }

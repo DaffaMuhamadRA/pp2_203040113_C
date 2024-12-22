@@ -5,10 +5,12 @@
 package main;
 
 import model.MyBatisUtil; 
-import model.ElectronicMapper;
+import model.UserMapper;
 import org.apache.ibatis.session.SqlSession; 
-import view.ElectronicsView;
-import controller.ElectronicsController;
+import view.UserPdf;
+import view.UserView;
+
+import controller.UserController;
 /**
  *
  * @author thega
@@ -16,10 +18,11 @@ import controller.ElectronicsController;
 public class Main {
     public static void main(String[] args) {
         SqlSession session = MyBatisUtil.getSqlSession(); 
-        ElectronicMapper mapper = session.getMapper(ElectronicMapper.class);
+        UserMapper mapper = session.getMapper(UserMapper.class);
+        UserPdf pdf = new UserPdf();
         
-        ElectronicsView view = new ElectronicsView(); 
-        new ElectronicsController(view, mapper);
+        UserView view = new UserView(); 
+        new UserController(view, mapper, pdf);
         
         view.setVisible(true);
     }
